@@ -68,6 +68,9 @@ JOIN country co ON ci.country_id = co.country_id
 JOIN rental r ON c.customer_id = r.customer_id
 JOIN payment p ON p.rental_id = r.rental_id;
 
+
+SELECT * From payment where payment_id IS null;
+
 -- Eliminar registros con rental_id o payment_id nulos.
 
 DELETE FROM rental 
@@ -77,9 +80,11 @@ WHERE rental_id IN (
     ) AS temp
 );
 
+SELECT count(rental_id) from rental;
+
 -- Asegurar que amount > 0 en payment.
 
-SELECT * FROM payment WHERE amount <= 0;
+SELECT * FROM payment WHERE amount >= 0;
 
 -- Filtrar registros donde rental.return_date no sea nula (alquiler completado).
 
@@ -99,13 +104,24 @@ SELECT
 FROM vista_customer_activity  
 LIMIT 50000;
 
--- Asegurar consistencia de fechas (rental_date < return_date).
+SELECT rental_id from rental WHERE return_date < rental_date; 
 
--- Eliminar registros inconsistentes (con truco de PK para evitar modo seguro)
+-- Asegurar consistencia de fechas (rental_date < return_date)
+
 DELETE FROM rental 
-WHERE return_date <= rental_date 
+WHERE return_date >= rental_date 
 AND rental_id > 0;
+
+SELECT rental_id from rental WHERE return_date >= rental_date; 
 
 ALTER TABLE rental
 ADD CONSTRAINT chk_rental_dates
 CHECK (return_date > rental_date);
+
+-- Crear columna derivada: rental_duration calculada en días usando DATEDIFF.
+
+SELECT *, DATEDIFF(r.return_date, r.rental_date) AS rental_duration_days
+FROM rental r;
+
+
+
