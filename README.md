@@ -155,10 +155,10 @@ Se completó la limpieza en Python para mayor control
 Se priorizó la integridad de los datos en los joins
 
 ### Tecnologías utilizadas
-MySQL / Workbench
-Python (Pandas, NumPy, Matplotlib, Seaborn)
-Google Colab
-GitHub
+- MySQL / Workbench
+- Python (Pandas, NumPy, Matplotlib, Seaborn)
+- Google Colab
+- GitHub
 
 ```
 📦 Estructura del repositorio
