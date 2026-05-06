@@ -116,15 +116,11 @@ Durante la fase de limpieza y preparación se realizaron las siguientes acciones
 ---
 
 ## Conclusiones Generales
-- Eficacia de la Integración SQL-Python: Se ha validado con éxito el flujo de trabajo ETL (Extracción, Transformación y Carga). La limpieza previa en SQL permitió optimizar el rendimiento en Python, manejando un volumen considerable de 16,044 registros sin comprometer la velocidad de procesamiento.
+- El flujo ETL entre SQL y Python fue altamente eficiente: la limpieza en SQL permitió procesar más de 16 mil registros en Python sin afectar el rendimiento. Se detectaron 183 alquileres aún activos (sin fecha de devolución), lo que ofrece una visión útil del inventario en circulación.
 
-- Estado de la Operativa de Alquiler: La identificación de 183 registros con return_date nulo es un hallazgo clave para el negocio, ya que representa el inventario que actualmente se encuentra fuera de la tienda (pendientes de devolución), permitiendo un control de stock en tiempo real.
+- En cuanto a ingresos, la mayoría de transacciones se concentra en precios bajos y medios, aunque existen algunos valores atípicos más altos que podrían corresponder a servicios premium. El comportamiento de los clientes muestra que suelen agotar los plazos de alquiler (especialmente en torno a 5 y 9 días), en lugar de devolver antes.
 
-- Perfil de Ingresos y Outliers: El análisis de la columna amount revela que la mayoría de las transacciones se concentran en rangos de precios bajos y medios. La detección de outliers (valores cercanos a $11) sugiere la existencia de servicios o productos premium que, aunque son menos frecuentes, tienen un impacto distinto en el margen de beneficio.
-
-- Comportamiento de los Usuarios: La distribución de la duración de alquileres muestra picos claros (alrededor de 5 y 9 días), lo que indica que los clientes tienden a agotar los plazos máximos permitidos por las políticas de la tienda en lugar de realizar devoluciones tempranas.
-
-- Calidad del Dato: Gracias a la normalización de textos y la conversión de tipos a datetime, el dataset resultante es robusto y está libre de inconsistencias, lo que facilita futuras fases de análisis predictivo o creación de tableros de control (Dashboards).
+- Finalmente, la calidad del dataset es alta gracias a la limpieza y normalización, lo que lo deja listo para análisis más avanzados o visualización en dashboards
 
 --- 
 
