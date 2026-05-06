@@ -21,12 +21,12 @@ Se generan varios dataframes mediante consultas SQL, se selecciona uno para limp
 
 ## Flujo del proyecto
 
-1. Preparación del entorno  
-2. Extracción de datos en SQL  
-3. Limpieza de datos en SQL  
-4. Exportación del dataset  
-5. Procesamiento en Python (Colab)  
-6. Visualización y análisis  
+- Preparación del entorno  
+- Extracción de datos en SQL  
+- Limpieza de datos en SQL  
+- Exportación del dataset  
+- Procesamiento en Python (Colab)  
+- Visualización y análisis  
 
 ---
 
@@ -77,6 +77,8 @@ python main.py
 
 Una vez ejecutado, el archivo resultante se guardará automáticamente en la carpeta data/.
 Para su uso posterior en Python.
+
+---
 
 ### Procesamiento en Google Colab
 
@@ -148,11 +150,15 @@ Detectar patrones de comportamiento
 Identificar outliers o anomalías
 Apoyar el análisis exploratorio (EDA)
 
+---
+
 ### Decisiones del proyecto
 Se seleccionó el Dataframe 1 por su valor analítico (clientes + pagos)
 Se realizó limpieza inicial en SQL para reducir ruido
 Se completó la limpieza en Python para mayor control
 Se priorizó la integridad de los datos en los joins
+
+---
 
 ### Tecnologías utilizadas
 - MySQL / Workbench
@@ -178,7 +184,7 @@ Se priorizó la integridad de los datos en los joins
 ├── README.md
 ├── requirements.txt
 ```
-
+---
 
 ### Cómo ejecutar el proyecto
 
@@ -191,6 +197,8 @@ Ejecutar las queries SQL
 Exportar el dataset limpio
 Abrir el notebook en Google Colab
 Ejecutar las celdas en orden
+
+---
 
 ### Notas finales
 
