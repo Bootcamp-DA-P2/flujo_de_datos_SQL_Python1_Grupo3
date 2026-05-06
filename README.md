@@ -139,6 +139,10 @@ Durante la fase de limpieza y preparación se realizaron las siguientes acciones
 ├── data/
 ├── notebooks/
 ├────── Dataframe_final.ipynb
+├── img/
+├────── alquiler.png
+├────── amount.png
+├────── pago.png
 ├── sql/
 ├────── DataFrame2.sql
 ├────── DataFrame3.sql
