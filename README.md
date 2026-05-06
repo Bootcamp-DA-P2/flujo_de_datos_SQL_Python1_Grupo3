@@ -160,7 +160,7 @@ Python (Pandas, NumPy, Matplotlib, Seaborn)
 Google Colab
 GitHub
 
-´´´
+```
 📦 Estructura del repositorio
 ├── data/
 ├── notebooks/
@@ -177,7 +177,7 @@ GitHub
 ├── LICENSE
 ├── README.md
 ├── requirements.txt
-´´´
+```
 
 
 ### Cómo ejecutar el proyecto
