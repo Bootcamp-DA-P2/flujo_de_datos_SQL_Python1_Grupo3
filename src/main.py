@@ -67,13 +67,16 @@ def get_data_list_from_join():
             # 2. Create the Pandas DataFrame
         df = pd.DataFrame(rows, columns=columns)
 
-            # --- EXPORTAR A CSV ---
-            # Verificamos si existe la carpeta 'data', si no, la creamos
-        if not os.path.exists('data'):
-            os.makedirs('data')
+        # --- EXPORTAR A CSV ---
+        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+        DATA_DIR = os.path.join(BASE_DIR, "data")
+
+        # Verificamos si existe la carpeta 'data', si no, la creamos
+        if not os.path.exists('DATA_DIR'):
+            os.makedirs('DATA_DIR')
             
             # --- 3. EXPORTAR A CSV (Paso Nuevo) ---
-        file_path = "data/DataFrame1.csv"
+        file_path = os.path.join(DATA_DIR, "DataFrame1.csv")
         df.to_csv(file_path, index=False, encoding='utf-8')
 
         print(f"✅ DataFrame creado con éxito y guardado en: {file_path}")
