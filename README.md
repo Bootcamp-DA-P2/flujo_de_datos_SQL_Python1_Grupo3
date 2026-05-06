@@ -113,22 +113,9 @@ Durante la fase de limpieza y preparación se realizaron las siguientes acciones
 
 ![Distribución de la Duración del Alquiler](img/pago.png)
 
----
-
-## Conclusiones Generales
-- El flujo ETL entre SQL y Python fue altamente eficiente: la limpieza en SQL permitió procesar más de 16 mil registros en Python sin afectar el rendimiento. Se detectaron 183 alquileres aún activos (sin fecha de devolución), lo que ofrece una visión útil del inventario en circulación.
-
-- En cuanto a ingresos, la mayoría de transacciones se concentra en precios bajos y medios, aunque existen algunos valores atípicos más altos que podrían corresponder a servicios premium. El comportamiento de los clientes muestra que suelen agotar los plazos de alquiler (especialmente en torno a 5 y 9 días), en lugar de devolver antes.
-
-- Finalmente, la calidad del dataset es alta gracias a la limpieza y normalización, lo que lo deja listo para análisis más avanzados o visualización en dashboards
-
 --- 
 
-### Tecnologías utilizadas
-- MySQL / Workbench
-- Python (Pandas, NumPy, Matplotlib, Seaborn)
-- Google Colab
-- GitHub
+# Estructura
 
 ```
 📦 Estructura del repositorio
@@ -154,6 +141,14 @@ Durante la fase de limpieza y preparación se realizaron las siguientes acciones
 ```
 ---
 
+### Tecnologías utilizadas
+- MySQL / Workbench
+- Python (Pandas, NumPy, Matplotlib, Seaborn)
+- Google Colab
+- GitHub
+
+---
+
 ### Cómo ejecutar el proyecto
 
 Clonar el repositorio:
@@ -168,6 +163,9 @@ git clone https://github.com/Bootcamp-DA-P2/flujo_de_datos_SQL_Python1_Grupo3.gi
 
 ---
 
-### Notas finales
+## Conclusiones Generales
+- El proyecto demuestra un flujo ETL eficiente entre SQL y Python, logrando procesar más de 16 mil registros con buen rendimiento y detectando alquileres activos clave para el control de inventario.
 
-Este proyecto permite aplicar un flujo completo de trabajo en análisis de datos, desde la extracción en SQL hasta la exploración y visualización en Python, generando un dataset limpio y preparado para futuras fases analíticas.
+- Además, los datos muestran que predominan ingresos bajos y medios con algunos valores premium, mientras que los clientes tienden a agotar los plazos de alquiler. El dataset final es limpio, consistente y listo para análisis avanzados o dashboards.
+
+--- 
