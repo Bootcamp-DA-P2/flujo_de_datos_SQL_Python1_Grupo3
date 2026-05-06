@@ -6,9 +6,9 @@ import os
 # Create a database connection
 def conection_bd():
     """Establece conexión con la base de datos Sakila"""
-    # 1. Construir la URL de conexión completa
+    # Construir la URL de conexión completa
     url_db = f"mysql+mysqlconnector://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}"
-    # 2. Crear el objeto 'motor' (engine) usando la URL
+    # Crear el objeto 'motor' (engine) usando la URL
     engine = create_engine(url_db)
     return engine.connect()
 
@@ -26,10 +26,11 @@ def test_connection():
         print(f"❌ Error al conectar a la base de datos: {e}")
         
 
-# 3. Función principal para extraer el Dataframe Elegido: DataFrame1
+# Función principal para extraer el Dataframe
 def get_data_list_from_join():
     """Obtener datos DA"""
     connection = conection_bd()
+    # DataFrame1
     with connection:
         join_query_sql = """
         SELECT 
@@ -64,18 +65,19 @@ def get_data_list_from_join():
         rows = result.fetchall()
         columns = result.keys()
 
-            # 2. Create the Pandas DataFrame
+        # Create the Pandas DataFrame
         df = pd.DataFrame(rows, columns=columns)
 
         # --- EXPORTAR A CSV ---
+        # Ruta del archivo actual
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-        DATA_DIR = os.path.join(BASE_DIR, "data")
-
-        # Verificamos si existe la carpeta 'data', si no, la creamos
-        if not os.path.exists('DATA_DIR'):
-            os.makedirs('DATA_DIR')
-            
-            # --- 3. EXPORTAR A CSV (Paso Nuevo) ---
+        # Subir un nivel (carpeta padre del proyecto)
+        PARENT_DIR = os.path.dirname(BASE_DIR)
+        # Carpeta data en el nivel superior
+        DATA_DIR = os.path.join(PARENT_DIR, "data")
+        # Crear carpeta si no existe
+        os.makedirs(DATA_DIR, exist_ok=True)
+        # Exportar
         file_path = os.path.join(DATA_DIR, "DataFrame1.csv")
         df.to_csv(file_path, index=False, encoding='utf-8')
 
@@ -84,7 +86,7 @@ def get_data_list_from_join():
 
         return df
         
-# 4. Bloque de ejecución
+# Bloque de ejecución
 if __name__ == "__main__":
-    test_connection()           # Paso 1: Validar conexión
-    get_data_list_from_join()   # Paso 2: Extraer y guardar
+    test_connection()           # Validar conexión
+    get_data_list_from_join()   # Extraer y guardar

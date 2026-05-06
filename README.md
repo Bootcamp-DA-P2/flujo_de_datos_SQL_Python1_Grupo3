@@ -75,90 +75,49 @@ Para generar el archivo, ejecuta el script principal del proyecto:
 python main.py
 ```
 
-Una vez ejecutado, el archivo resultante se guardará automáticamente en la carpeta data/.
-Para su uso posterior en Python.
+Una vez ejecutado, el archivo resultante se guardará automáticamente en la carpeta **data/**, si no existe la creará. Para su uso posterior en Python.
 
----
+--- 
 
-### Procesamiento en Google Colab
+### Procesamiento en Google Colab: Python / Análisis
 
-- Pasos realizados:
-
-### Python / Análisis
 - Uso de **Google Colab**
-- Librerías principales:
 
-```python
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
+Importación y Limpieza de Datos
 
-Carga del dataset:
+El dataset final consolidado (`dataframe_final`) cuenta con un total de **16,044 registros** y **14 columnas**. Se integró información de alquileres, pagos, clientes, inventario, películas y ubicaciones geográficas.
 
-df = pd.read_csv('Dataframe1.csv')
-```
+Durante la fase de limpieza y preparación se realizaron las siguientes acciones:
 
-Procesamiento:
+* **Conversión de Tipos:** Transformación de las variables de fecha (`rental_date`, `return_date`, `payment_date`) a formato `datetime`.
 
-Conversión de fechas a datetime
-Revisión y eliminación de duplicados
-Tratamiento de valores nulos
-Corrección de tipos de datos
-Normalización de strings
+* **Normalización de Texto:** Limpieza de strings y estandarización en columnas como nombres, apellidos, ciudades y países.
 
-### Visualización de datos en Colab
-
-Se realizaron gráficos para explorar y validar los datos.
-
-- Histogramas
-
-Distribución de variables numéricas:
-
-df['rental_duration'].hist()
-plt.title('Distribución de duración de alquiler')
-plt.show()
-
-- Boxplots
-
-Detección de outliers:
-
-sns.boxplot(x=df['amount'])
-plt.title('Outliers en pagos')
-plt.show()
-
-- Gráficos de barras
-
-Análisis de variables categóricas:
-
-df['city'].value_counts().head(10).plot(kind='bar')
-plt.title('Top ciudades')
-plt.show()
-
-- Scatter plots
-
-Relaciones entre variables:
-
-plt.scatter(df['rental_duration'], df['amount'])
-plt.xlabel('Duración')
-plt.ylabel('Pago')
-plt.show()
-
-### Objetivo de las visualizaciones
-Validar la calidad de los datos tras la limpieza
-Detectar patrones de comportamiento
-Identificar outliers o anomalías
-Apoyar el análisis exploratorio (EDA)
+* **Tratamiento de Nulos:** Se identificaron **183 valores nulos** en la fecha de devolución (`return_date`), los cuales corresponden a películas que aún no han sido devueltas por los clientes.
 
 ---
 
-### Decisiones del proyecto
-Se seleccionó el Dataframe 1 por su valor analítico (clientes + pagos)
-Se realizó limpieza inicial en SQL para reducir ruido
-Se completó la limpieza en Python para mayor control
-Se priorizó la integridad de los datos en los joins
+# Gráfica para identificar el outlier en la columna "amount".
+
+![Distribución de Precios y Outliers](img/amount.png)
 
 ---
+
+# Gráfica de los días de alquiler
+
+![Clasificación de Niveles de Pago](img/alquiler.png)
+
+---
+
+# Gráfica de la distribución de los importes de pago
+
+![Distribución de la Duración del Alquiler](img/pago.png)
+
+---
+
+## Conclusiones Generales
+
+--- 
 
 ### Tecnologías utilizadas
 - MySQL / Workbench
@@ -193,10 +152,10 @@ Clonar el repositorio:
 git clone https://github.com/Bootcamp-DA-P2/flujo_de_datos_SQL_Python1_Grupo3.git
 ```
 
-Ejecutar las queries SQL
-Exportar el dataset limpio
-Abrir el notebook en Google Colab
-Ejecutar las celdas en orden
+- Ejecutar las queries SQL
+- Exportar el dataset limpio
+- Abrir el notebook en Google Colab
+- Ejecutar las celdas en orden
 
 ---
 
